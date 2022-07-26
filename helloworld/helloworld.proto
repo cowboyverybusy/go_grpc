@@ -1,0 +1,19 @@
+syntax = "proto3";
+package helloworld;
+//因为proto文件本来就在helloworld文件夹中，我们这里返回到上一级再回到helloworld文件夹，这样生成的.pb.go文件就和proto文件同目录了。.pb.go文件也不会缺少package包。
+option go_package ="../helloworld";
+
+service UserInfo {
+  //获取用户详细信息
+  rpc GetUserDesc(User) returns (UserDesc);
+}
+
+message User {
+  uint32 id = 1;
+  string name = 2;
+  string description = 3;
+}
+
+message UserDesc {
+  string desc = 1;
+}
