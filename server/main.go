@@ -20,6 +20,7 @@ const (
 
 func (s *server) GetUserDesc(cxt context.Context, user *pb.User) (*pb.UserDesc, error) {
 	desc := fmt.Sprintf("用户编号是:%d,名称是:%s,描述是:%s", user.Id, user.Name, user.Description)
+	fmt.Printf("api request,desc: %v\n", desc)
 	resp := &pb.UserDesc{
 		Desc: desc,
 	}
